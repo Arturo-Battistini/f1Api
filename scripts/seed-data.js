@@ -1,0 +1,901 @@
+const { MongoClient } = require('mongodb');
+
+const uri = 'mongodb://localhost:27017/f1fan-db';
+const client = new MongoClient(uri);
+
+async function seedData() {
+  try {
+    await client.connect();
+    console.log('✅ Conectado a MongoDB');
+
+    const db = client.db('f1fan-db');
+
+    // Limpiar colecciones existentes
+    await db.collection('teams').deleteMany({});
+    await db.collection('pilots').deleteMany({});
+    await db.collection('circuits').deleteMany({});
+    await db.collection('tires').deleteMany({});
+
+    console.log('🧹 Colecciones limpiadas');
+
+    // Insertar equipos
+    const teams = [
+      {
+        name: 'Red Bull Racing',
+        nationality: 'Austria',
+        teamPrincipal: 'Christian Horner',
+        engine: 'Honda RBPT',
+        headquarters: 'Milton Keynes, Reino Unido',
+        foundedYear: 2005,
+        constructorsChampionships: 6,
+        driversChampionships: 7,
+        raceWins: 118,
+        polePositions: 95,
+        fastestLaps: 89,
+        isActive: true,
+        primaryColor: '#3671C6',
+        secondaryColor: '#FF0000',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Red_Bull_Racing_logo.svg/1200px-Red_Bull_Racing_logo.svg.png'
+      },
+      {
+        name: 'Mercedes-AMG Petronas',
+        nationality: 'Alemania',
+        teamPrincipal: 'Toto Wolff',
+        engine: 'Mercedes',
+        headquarters: 'Brackley, Reino Unido',
+        foundedYear: 2010,
+        constructorsChampionships: 8,
+        driversChampionships: 7,
+        raceWins: 125,
+        polePositions: 135,
+        fastestLaps: 95,
+        isActive: true,
+        primaryColor: '#00D2BE',
+        secondaryColor: '#000000',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Mercedes_AMG_Petronas_F1_Logo.svg/1200px-Mercedes_AMG_Petronas_F1_Logo.svg.png'
+      },
+      {
+        name: 'Scuderia Ferrari',
+        nationality: 'Italia',
+        teamPrincipal: 'Frédéric Vasseur',
+        engine: 'Ferrari',
+        headquarters: 'Maranello, Italia',
+        foundedYear: 1950,
+        constructorsChampionships: 16,
+        driversChampionships: 15,
+        raceWins: 243,
+        polePositions: 249,
+        fastestLaps: 259,
+        isActive: true,
+        primaryColor: '#DC0000',
+        secondaryColor: '#FFFFFF',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Scuderia_Ferrari_logo.svg/1200px-Scuderia_Ferrari_logo.svg.png'
+      },
+      {
+        name: 'McLaren Racing',
+        nationality: 'Reino Unido',
+        teamPrincipal: 'Andrea Stella',
+        engine: 'Mercedes',
+        headquarters: 'Woking, Reino Unido',
+        foundedYear: 1963,
+        constructorsChampionships: 8,
+        driversChampionships: 12,
+        raceWins: 183,
+        polePositions: 156,
+        fastestLaps: 161,
+        isActive: true,
+        primaryColor: '#FF8700',
+        secondaryColor: '#000000',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/McLaren_Racing_logo.svg/1200px-McLaren_Racing_logo.svg.png'
+      },
+      {
+        name: 'Aston Martin F1 Team',
+        nationality: 'Reino Unido',
+        teamPrincipal: 'Mike Krack',
+        engine: 'Mercedes',
+        headquarters: 'Silverstone, Reino Unido',
+        foundedYear: 2021,
+        constructorsChampionships: 0,
+        driversChampionships: 0,
+        raceWins: 0,
+        polePositions: 1,
+        fastestLaps: 0,
+        isActive: true,
+        primaryColor: '#006F62',
+        secondaryColor: '#FFFFFF',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Aston_Martin_F1_Team_logo.svg/1200px-Aston_Martin_F1_Team_logo.svg.png'
+      },
+      {
+        name: 'Alpine F1 Team',
+        nationality: 'Francia',
+        teamPrincipal: 'Bruno Famin',
+        engine: 'Renault',
+        headquarters: 'Enstone, Reino Unido',
+        foundedYear: 2021,
+        constructorsChampionships: 0,
+        driversChampionships: 0,
+        raceWins: 0,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        primaryColor: '#0090FF',
+        secondaryColor: '#FFFFFF',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Alpine_F1_Team_logo.svg/1200px-Alpine_F1_Team_logo.svg.png'
+      },
+      {
+        name: 'Williams Racing',
+        nationality: 'Reino Unido',
+        teamPrincipal: 'James Vowles',
+        engine: 'Mercedes',
+        headquarters: 'Grove, Reino Unido',
+        foundedYear: 1977,
+        constructorsChampionships: 9,
+        driversChampionships: 7,
+        raceWins: 114,
+        polePositions: 128,
+        fastestLaps: 133,
+        isActive: true,
+        primaryColor: '#005AFF',
+        secondaryColor: '#FFFFFF',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Williams_Racing_logo.svg/1200px-Williams_Racing_logo.svg.png'
+      },
+      {
+        name: 'Visa Cash App RB',
+        nationality: 'Italia',
+        teamPrincipal: 'Laurent Mekies',
+        engine: 'Honda RBPT',
+        headquarters: 'Faenza, Italia',
+        foundedYear: 2006,
+        constructorsChampionships: 0,
+        driversChampionships: 0,
+        raceWins: 0,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        primaryColor: '#1E41FF',
+        secondaryColor: '#FFFFFF',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Visa_Cash_App_RB_logo.svg/1200px-Visa_Cash_App_RB_logo.svg.png'
+      },
+      {
+        name: 'Stake F1 Team Kick Sauber',
+        nationality: 'Suiza',
+        teamPrincipal: 'Alessandro Alunni Bravi',
+        engine: 'Ferrari',
+        headquarters: 'Hinwil, Suiza',
+        foundedYear: 1993,
+        constructorsChampionships: 0,
+        driversChampionships: 0,
+        raceWins: 0,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        primaryColor: '#52E252',
+        secondaryColor: '#000000',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Stake_F1_Team_Kick_Sauber_logo.svg/1200px-Stake_F1_Team_Kick_Sauber_logo.svg.png'
+      },
+      {
+        name: 'MoneyGram Haas F1 Team',
+        nationality: 'Estados Unidos',
+        teamPrincipal: 'Ayao Komatsu',
+        engine: 'Ferrari',
+        headquarters: 'Kannapolis, Estados Unidos',
+        foundedYear: 2016,
+        constructorsChampionships: 0,
+        driversChampionships: 0,
+        raceWins: 0,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        primaryColor: '#FFFFFF',
+        secondaryColor: '#FF0000',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/MoneyGram_Haas_F1_Team_logo.svg/1200px-MoneyGram_Haas_F1_Team_logo.svg.png'
+      }
+    ];
+
+    const teamsResult = await db.collection('teams').insertMany(teams);
+    console.log(`🏎️ ${teamsResult.insertedCount} equipos insertados`);
+
+    // Obtener IDs de equipos para referencias
+    const teamsData = await db.collection('teams').find({}).toArray();
+    const teamIds = {};
+    teamsData.forEach(team => {
+      teamIds[team.name] = team._id;
+    });
+
+    // Insertar pilotos
+    const pilots = [
+      {
+        name: 'Max',
+        surname: 'Verstappen',
+        nationality: 'Países Bajos',
+        dateOfBirth: new Date('1997-09-30'),
+        number: 1,
+        currentTeam: teamIds['Red Bull Racing'],
+        championshipPoints: 575,
+        raceWins: 60,
+        podiums: 104,
+        polePositions: 40,
+        fastestLaps: 32,
+        isActive: true,
+        helmetColor: '#FF0000'
+      },
+      {
+        name: 'Sergio',
+        surname: 'Pérez',
+        nationality: 'México',
+        dateOfBirth: new Date('1990-01-26'),
+        number: 11,
+        currentTeam: teamIds['Red Bull Racing'],
+        championshipPoints: 285,
+        raceWins: 6,
+        podiums: 39,
+        polePositions: 3,
+        fastestLaps: 10,
+        isActive: true,
+        helmetColor: '#00FF00'
+      },
+      {
+        name: 'Lewis',
+        surname: 'Hamilton',
+        nationality: 'Reino Unido',
+        dateOfBirth: new Date('1985-01-07'),
+        number: 44,
+        currentTeam: teamIds['Mercedes-AMG Petronas'],
+        championshipPoints: 4639,
+        raceWins: 103,
+        podiums: 197,
+        polePositions: 104,
+        fastestLaps: 64,
+        isActive: true,
+        helmetColor: '#FFD700'
+      },
+      {
+        name: 'George',
+        surname: 'Russell',
+        nationality: 'Reino Unido',
+        dateOfBirth: new Date('1998-02-15'),
+        number: 63,
+        currentTeam: teamIds['Mercedes-AMG Petronas'],
+        championshipPoints: 469,
+        raceWins: 1,
+        podiums: 11,
+        polePositions: 1,
+        fastestLaps: 6,
+        isActive: true,
+        helmetColor: '#0000FF'
+      },
+      {
+        name: 'Charles',
+        surname: 'Leclerc',
+        nationality: 'Mónaco',
+        dateOfBirth: new Date('1997-10-16'),
+        number: 16,
+        currentTeam: teamIds['Scuderia Ferrari'],
+        championshipPoints: 1074,
+        raceWins: 5,
+        podiums: 32,
+        polePositions: 23,
+        fastestLaps: 7,
+        isActive: true,
+        helmetColor: '#FF0000'
+      },
+      {
+        name: 'Carlos',
+        surname: 'Sainz',
+        nationality: 'España',
+        dateOfBirth: new Date('1994-09-01'),
+        number: 55,
+        currentTeam: teamIds['Scuderia Ferrari'],
+        championshipPoints: 982,
+        raceWins: 2,
+        podiums: 18,
+        polePositions: 4,
+        fastestLaps: 3,
+        isActive: true,
+        helmetColor: '#FFA500'
+      },
+      {
+        name: 'Lando',
+        surname: 'Norris',
+        nationality: 'Reino Unido',
+        dateOfBirth: new Date('1999-11-13'),
+        number: 4,
+        currentTeam: teamIds['McLaren Racing'],
+        championshipPoints: 633,
+        raceWins: 0,
+        podiums: 15,
+        polePositions: 1,
+        fastestLaps: 5,
+        isActive: true,
+        helmetColor: '#FF6B6B'
+      },
+      {
+        name: 'Oscar',
+        surname: 'Piastri',
+        nationality: 'Australia',
+        dateOfBirth: new Date('2001-04-06'),
+        number: 81,
+        currentTeam: teamIds['McLaren Racing'],
+        championshipPoints: 97,
+        raceWins: 0,
+        podiums: 2,
+        polePositions: 0,
+        fastestLaps: 1,
+        isActive: true,
+        helmetColor: '#87CEEB'
+      },
+      {
+        name: 'Fernando',
+        surname: 'Alonso',
+        nationality: 'España',
+        dateOfBirth: new Date('1981-07-29'),
+        number: 14,
+        currentTeam: teamIds['Aston Martin F1 Team'],
+        championshipPoints: 2267,
+        raceWins: 32,
+        podiums: 106,
+        polePositions: 22,
+        fastestLaps: 24,
+        isActive: true,
+        helmetColor: '#FFD700'
+      },
+      {
+        name: 'Lance',
+        surname: 'Stroll',
+        nationality: 'Canadá',
+        dateOfBirth: new Date('1998-10-29'),
+        number: 18,
+        currentTeam: teamIds['Aston Martin F1 Team'],
+        championshipPoints: 277,
+        raceWins: 0,
+        podiums: 3,
+        polePositions: 1,
+        fastestLaps: 1,
+        isActive: true,
+        helmetColor: '#FF69B4'
+      },
+      {
+        name: 'Esteban',
+        surname: 'Ocon',
+        nationality: 'Francia',
+        dateOfBirth: new Date('1996-09-17'),
+        number: 31,
+        currentTeam: teamIds['Alpine F1 Team'],
+        championshipPoints: 422,
+        raceWins: 1,
+        podiums: 3,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        helmetColor: '#FF69B4'
+      },
+      {
+        name: 'Pierre',
+        surname: 'Gasly',
+        nationality: 'Francia',
+        dateOfBirth: new Date('1996-02-07'),
+        number: 10,
+        currentTeam: teamIds['Alpine F1 Team'],
+        championshipPoints: 394,
+        raceWins: 1,
+        podiums: 4,
+        polePositions: 0,
+        fastestLaps: 3,
+        isActive: true,
+        helmetColor: '#FF1493'
+      },
+      {
+        name: 'Alexander',
+        surname: 'Albon',
+        nationality: 'Tailandia',
+        dateOfBirth: new Date('1996-03-23'),
+        number: 23,
+        currentTeam: teamIds['Williams Racing'],
+        championshipPoints: 228,
+        raceWins: 0,
+        podiums: 2,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        helmetColor: '#FF69B4'
+      },
+      {
+        name: 'Logan',
+        surname: 'Sargeant',
+        nationality: 'Estados Unidos',
+        dateOfBirth: new Date('2000-12-31'),
+        number: 2,
+        currentTeam: teamIds['Williams Racing'],
+        championshipPoints: 1,
+        raceWins: 0,
+        podiums: 0,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        helmetColor: '#FFD700'
+      },
+      {
+        name: 'Daniel',
+        surname: 'Ricciardo',
+        nationality: 'Australia',
+        dateOfBirth: new Date('1989-07-01'),
+        number: 3,
+        currentTeam: teamIds['Visa Cash App RB'],
+        championshipPoints: 1317,
+        raceWins: 8,
+        podiums: 32,
+        polePositions: 3,
+        fastestLaps: 16,
+        isActive: true,
+        helmetColor: '#FFD700'
+      },
+      {
+        name: 'Yuki',
+        surname: 'Tsunoda',
+        nationality: 'Japón',
+        dateOfBirth: new Date('2000-05-11'),
+        number: 22,
+        currentTeam: teamIds['Visa Cash App RB'],
+        championshipPoints: 67,
+        raceWins: 0,
+        podiums: 0,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        helmetColor: '#FF69B4'
+      },
+      {
+        name: 'Valtteri',
+        surname: 'Bottas',
+        nationality: 'Finlandia',
+        dateOfBirth: new Date('1989-08-28'),
+        number: 77,
+        currentTeam: teamIds['Stake F1 Team Kick Sauber'],
+        championshipPoints: 1797,
+        raceWins: 10,
+        podiums: 67,
+        polePositions: 20,
+        fastestLaps: 19,
+        isActive: true,
+        helmetColor: '#FF69B4'
+      },
+      {
+        name: 'Zhou',
+        surname: 'Guanyu',
+        nationality: 'China',
+        dateOfBirth: new Date('1999-05-30'),
+        number: 24,
+        currentTeam: teamIds['Stake F1 Team Kick Sauber'],
+        championshipPoints: 12,
+        raceWins: 0,
+        podiums: 0,
+        polePositions: 0,
+        fastestLaps: 0,
+        isActive: true,
+        helmetColor: '#FF0000'
+      },
+      {
+        name: 'Nico',
+        surname: 'Hülkenberg',
+        nationality: 'Alemania',
+        dateOfBirth: new Date('1987-08-19'),
+        number: 27,
+        currentTeam: teamIds['MoneyGram Haas F1 Team'],
+        championshipPoints: 530,
+        raceWins: 0,
+        podiums: 0,
+        polePositions: 1,
+        fastestLaps: 2,
+        isActive: true,
+        helmetColor: '#FFD700'
+      },
+      {
+        name: 'Kevin',
+        surname: 'Magnussen',
+        nationality: 'Dinamarca',
+        dateOfBirth: new Date('1992-10-05'),
+        number: 20,
+        currentTeam: teamIds['MoneyGram Haas F1 Team'],
+        championshipPoints: 186,
+        raceWins: 0,
+        podiums: 1,
+        polePositions: 0,
+        fastestLaps: 2,
+        isActive: true,
+        helmetColor: '#FFD700'
+      }
+    ];
+
+    const pilotsResult = await db.collection('pilots').insertMany(pilots);
+    console.log(`👤 ${pilotsResult.insertedCount} pilotos insertados`);
+
+    // Insertar circuitos
+    const circuits = [
+      {
+        name: 'Circuito de Albert Park',
+        country: 'Australia',
+        city: 'Melbourne',
+        length: 5278,
+        corners: 14,
+        recordLapTime: '1:20.235',
+        recordHolder: 'Max Verstappen',
+        recordYear: 2024,
+        builtYear: 1996,
+        capacity: 80000,
+        isActive: true,
+        firstGrandPrix: 1996,
+        circuitType: 'street',
+        description: 'Circuito urbano alrededor del lago Albert Park'
+      },
+      {
+        name: 'Circuito Internacional de Baréin',
+        country: 'Baréin',
+        city: 'Sakhir',
+        length: 5412,
+        corners: 15,
+        recordLapTime: '1:31.447',
+        recordHolder: 'Max Verstappen',
+        recordYear: 2024,
+        builtYear: 2004,
+        capacity: 70000,
+        isActive: true,
+        firstGrandPrix: 2004,
+        circuitType: 'permanent',
+        description: 'Circuito desértico con múltiples configuraciones'
+      },
+      {
+        name: 'Circuito Internacional de Jeddah',
+        country: 'Arabia Saudita',
+        city: 'Yeda',
+        length: 6174,
+        corners: 27,
+        recordLapTime: '1:28.265',
+        recordHolder: 'Lewis Hamilton',
+        recordYear: 2021,
+        builtYear: 2021,
+        capacity: 150000,
+        isActive: true,
+        firstGrandPrix: 2021,
+        circuitType: 'street',
+        description: 'Circuito urbano de alta velocidad junto al Mar Rojo'
+      },
+      {
+        name: 'Circuito de Suzuka',
+        country: 'Japón',
+        city: 'Suzuka',
+        length: 5807,
+        corners: 18,
+        recordLapTime: '1:30.983',
+        recordHolder: 'Lewis Hamilton',
+        recordYear: 2019,
+        builtYear: 1962,
+        capacity: 155000,
+        isActive: true,
+        firstGrandPrix: 1987,
+        circuitType: 'permanent',
+        description: 'Circuito técnico con la famosa curva S'
+      },
+      {
+        name: 'Circuito de Shanghái',
+        country: 'China',
+        city: 'Shanghái',
+        length: 5451,
+        corners: 16,
+        recordLapTime: '1:32.238',
+        recordHolder: 'Michael Schumacher',
+        recordYear: 2004,
+        builtYear: 2004,
+        capacity: 200000,
+        isActive: true,
+        firstGrandPrix: 2004,
+        circuitType: 'permanent',
+        description: 'Circuito con forma de caracter chino "shang"'
+      },
+      {
+        name: 'Circuito de las Américas',
+        country: 'Estados Unidos',
+        city: 'Austin',
+        length: 5513,
+        corners: 20,
+        recordLapTime: '1:36.169',
+        recordHolder: 'Charles Leclerc',
+        recordYear: 2019,
+        builtYear: 2012,
+        capacity: 120000,
+        isActive: true,
+        firstGrandPrix: 2012,
+        circuitType: 'permanent',
+        description: 'Circuito moderno con elevaciones naturales'
+      },
+      {
+        name: 'Autódromo José Carlos Pace',
+        country: 'Brasil',
+        city: 'São Paulo',
+        length: 4309,
+        corners: 15,
+        recordLapTime: '1:10.540',
+        recordHolder: 'Valtteri Bottas',
+        recordYear: 2018,
+        builtYear: 1940,
+        capacity: 60000,
+        isActive: true,
+        firstGrandPrix: 1973,
+        circuitType: 'permanent',
+        description: 'Circuito histórico en el parque de Interlagos'
+      },
+      {
+        name: 'Circuito de Mónaco',
+        country: 'Mónaco',
+        city: 'Monte Carlo',
+        length: 3337,
+        corners: 19,
+        recordLapTime: '1:12.909',
+        recordHolder: 'Lewis Hamilton',
+        recordYear: 2021,
+        builtYear: 1929,
+        capacity: 37000,
+        isActive: true,
+        firstGrandPrix: 1950,
+        circuitType: 'street',
+        description: 'Circuito urbano más prestigioso de F1'
+      },
+      {
+        name: 'Circuito de Silverstone',
+        country: 'Reino Unido',
+        city: 'Silverstone',
+        length: 5891,
+        corners: 18,
+        recordLapTime: '1:27.097',
+        recordHolder: 'Max Verstappen',
+        recordYear: 2023,
+        builtYear: 1948,
+        capacity: 150000,
+        isActive: true,
+        firstGrandPrix: 1950,
+        circuitType: 'permanent',
+        description: 'Circuito histórico, cuna de la F1'
+      },
+      {
+        name: 'Circuito de Spa-Francorchamps',
+        country: 'Bélgica',
+        city: 'Stavelot',
+        length: 7004,
+        corners: 20,
+        recordLapTime: '1:46.286',
+        recordHolder: 'Valtteri Bottas',
+        recordYear: 2018,
+        builtYear: 1921,
+        capacity: 70000,
+        isActive: true,
+        firstGrandPrix: 1950,
+        circuitType: 'permanent',
+        description: 'Circuito legendario en las Ardenas'
+      },
+      {
+        name: 'Circuito de Monza',
+        country: 'Italia',
+        city: 'Monza',
+        length: 5793,
+        corners: 11,
+        recordLapTime: '1:21.046',
+        recordHolder: 'Rubens Barrichello',
+        recordYear: 2004,
+        builtYear: 1922,
+        capacity: 113000,
+        isActive: true,
+        firstGrandPrix: 1950,
+        circuitType: 'permanent',
+        description: 'Templo de la velocidad, circuito más rápido'
+      },
+      {
+        name: 'Circuito de Marina Bay',
+        country: 'Singapur',
+        city: 'Singapur',
+        length: 5063,
+        corners: 23,
+        recordLapTime: '1:41.905',
+        recordHolder: 'Lewis Hamilton',
+        recordYear: 2018,
+        builtYear: 2008,
+        capacity: 109000,
+        isActive: true,
+        firstGrandPrix: 2008,
+        circuitType: 'street',
+        description: 'Primer Gran Premio nocturno de F1'
+      },
+      {
+        name: 'Circuito de Yas Marina',
+        country: 'Emiratos Árabes Unidos',
+        city: 'Abu Dhabi',
+        length: 5281,
+        corners: 16,
+        recordLapTime: '1:26.103',
+        recordHolder: 'Max Verstappen',
+        recordYear: 2021,
+        builtYear: 2009,
+        capacity: 60000,
+        isActive: true,
+        firstGrandPrix: 2009,
+        circuitType: 'permanent',
+        description: 'Circuito moderno con hotel en forma de barco'
+      },
+      {
+        name: 'Circuito de Hungaroring',
+        country: 'Hungría',
+        city: 'Mogyoród',
+        length: 4381,
+        corners: 14,
+        recordLapTime: '1:16.627',
+        recordHolder: 'Lewis Hamilton',
+        recordYear: 2020,
+        builtYear: 1986,
+        capacity: 70000,
+        isActive: true,
+        firstGrandPrix: 1986,
+        circuitType: 'permanent',
+        description: 'Circuito técnico conocido como "Monaco sin muros"'
+      },
+      {
+        name: 'Circuito de Zandvoort',
+        country: 'Países Bajos',
+        city: 'Zandvoort',
+        length: 4259,
+        corners: 14,
+        recordLapTime: '1:11.097',
+        recordHolder: 'Lewis Hamilton',
+        recordYear: 2021,
+        builtYear: 1948,
+        capacity: 105000,
+        isActive: true,
+        firstGrandPrix: 1952,
+        circuitType: 'permanent',
+        description: 'Circuito costero con curvas peraltadas'
+      }
+    ];
+
+    const circuitsResult = await db.collection('circuits').insertMany(circuits);
+    console.log(`🏁 ${circuitsResult.insertedCount} circuitos insertados`);
+
+    // Insertar neumáticos
+    const tires = [
+      {
+        name: 'P Zero Soft',
+        type: 'soft',
+        compound: 'C3',
+        durability: 3,
+        grip: 9,
+        optimalTemperature: 100,
+        temperatureRange: { min: 80, max: 120 },
+        color: '#FF0000',
+        description: 'Neumático de máxima adherencia para vueltas rápidas',
+        isActive: true,
+        manufacturer: 'Pirelli',
+        season: 2024,
+        usageConditions: 'dry'
+      },
+      {
+        name: 'P Zero Medium',
+        type: 'medium',
+        compound: 'C2',
+        durability: 6,
+        grip: 7,
+        optimalTemperature: 95,
+        temperatureRange: { min: 75, max: 115 },
+        color: '#FFFF00',
+        description: 'Neumático equilibrado entre durabilidad y rendimiento',
+        isActive: true,
+        manufacturer: 'Pirelli',
+        season: 2024,
+        usageConditions: 'dry'
+      },
+      {
+        name: 'P Zero Hard',
+        type: 'hard',
+        compound: 'C1',
+        durability: 9,
+        grip: 5,
+        optimalTemperature: 90,
+        temperatureRange: { min: 70, max: 110 },
+        color: '#FFFFFF',
+        description: 'Neumático de máxima durabilidad para largas distancias',
+        isActive: true,
+        manufacturer: 'Pirelli',
+        season: 2024,
+        usageConditions: 'dry'
+      },
+      {
+        name: 'Cinturato Intermediate',
+        type: 'intermediate',
+        compound: 'I1',
+        durability: 7,
+        grip: 6,
+        optimalTemperature: 85,
+        temperatureRange: { min: 65, max: 105 },
+        color: '#00FF00',
+        description: 'Neumático para condiciones de pista húmeda',
+        isActive: true,
+        manufacturer: 'Pirelli',
+        season: 2024,
+        usageConditions: 'wet'
+      },
+      {
+        name: 'Cinturato Wet',
+        type: 'wet',
+        compound: 'W1',
+        durability: 8,
+        grip: 4,
+        optimalTemperature: 80,
+        temperatureRange: { min: 60, max: 100 },
+        color: '#0000FF',
+        description: 'Neumático para condiciones de lluvia intensa',
+        isActive: true,
+        manufacturer: 'Pirelli',
+        season: 2024,
+        usageConditions: 'wet'
+      },
+      {
+        name: 'P Zero Soft (2023)',
+        type: 'soft',
+        compound: 'C4',
+        durability: 2,
+        grip: 10,
+        optimalTemperature: 105,
+        temperatureRange: { min: 85, max: 125 },
+        color: '#FF0000',
+        description: 'Neumático de máxima adherencia temporada 2023',
+        isActive: false,
+        manufacturer: 'Pirelli',
+        season: 2023,
+        usageConditions: 'dry'
+      },
+      {
+        name: 'P Zero Medium (2023)',
+        type: 'medium',
+        compound: 'C3',
+        durability: 5,
+        grip: 8,
+        optimalTemperature: 100,
+        temperatureRange: { min: 80, max: 120 },
+        color: '#FFFF00',
+        description: 'Neumático equilibrado temporada 2023',
+        isActive: false,
+        manufacturer: 'Pirelli',
+        season: 2023,
+        usageConditions: 'dry'
+      },
+      {
+        name: 'P Zero Hard (2023)',
+        type: 'hard',
+        compound: 'C1',
+        durability: 8,
+        grip: 6,
+        optimalTemperature: 95,
+        temperatureRange: { min: 75, max: 115 },
+        color: '#FFFFFF',
+        description: 'Neumático de durabilidad temporada 2023',
+        isActive: false,
+        manufacturer: 'Pirelli',
+        season: 2023,
+        usageConditions: 'dry'
+      }
+    ];
+
+    const tiresResult = await db.collection('tires').insertMany(tires);
+    console.log(`🛞 ${tiresResult.insertedCount} neumáticos insertados`);
+
+    console.log('\n🎉 ¡Datos de F1 insertados exitosamente!');
+    console.log('\n📊 Resumen:');
+    console.log(`   • ${teamsResult.insertedCount} equipos`);
+    console.log(`   • ${pilotsResult.insertedCount} pilotos`);
+    console.log(`   • ${circuitsResult.insertedCount} circuitos`);
+    console.log(`   • ${tiresResult.insertedCount} neumáticos`);
+
+  } catch (error) {
+    console.error('❌ Error:', error);
+  } finally {
+    await client.close();
+    console.log('🔌 Conexión cerrada');
+  }
+}
+
+seedData(); 
