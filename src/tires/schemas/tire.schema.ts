@@ -23,7 +23,7 @@ export class Tire {
   @Prop()
   optimalTemperature: number; // in Celsius
 
-  @Prop()
+  @Prop({ type: Object })
   temperatureRange: {
     min: number;
     max: number;
