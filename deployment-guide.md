@@ -59,7 +59,7 @@ services:
 4. **Crear nuevo Web Service**
 5. **Configurar variables de entorno:**
    - `NODE_ENV=production`
-   - `MONGODB_URI=mongodb+srv://...` (se genera automáticamente)
+   - `MONGODB_URI=mongodb+srv://f1fan-db:tu-contraseña@cluster0.xxxxx.mongodb.net/f1fan-db?retryWrites=true&w=majority`
 
 ### **Paso 3: Configurar Base de Datos**
 
@@ -93,7 +93,7 @@ services:
 ### **Variables de Entorno Necesarias:**
 ```env
 NODE_ENV=production
-MONGODB_URI=mongodb+srv://usuario:password@cluster.mongodb.net/f1fan-db
+MONGODB_URI=mongodb+srv://f1fan-db:tu-contraseña@cluster0.xxxxx.mongodb.net/f1fan-db?retryWrites=true&w=majority
 PORT=3000
 ```
 
@@ -114,7 +114,7 @@ PORT=3000
 2. **Ejecutar el script de seed:**
 ```bash
 # Modificar la URI en scripts/seed-data.js
-MONGODB_URI=mongodb+srv://...
+MONGODB_URI=mongodb+srv://f1fan-db:tu-contraseña@cluster0.xxxxx.mongodb.net/f1fan-db?retryWrites=true&w=majority
 node scripts/seed-data.js
 ```
 
