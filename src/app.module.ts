@@ -13,7 +13,7 @@ import { TiresModule } from './tires/tires.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/f1fan-db'),
+    MongooseModule.forRoot(process.env.MONGODB_URI as string),
     PilotsModule,
     TeamsModule,
     CircuitsModule,
