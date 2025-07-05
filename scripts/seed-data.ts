@@ -1,6 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const uri = 'mongodb://localhost:27017/f1fan-db';
+const uri =
+  'mongodb+srv://f1fan-db:20202020@cluster0.ta3ee8i.mongodb.net/f1fan-db?retryWrites=true&w=majority&appName=Cluster0';
 const client = new MongoClient(uri);
 
 async function seedData() {
