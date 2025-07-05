@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
 
 const uri = 'mongodb://localhost:27017/f1fan-db';
 const client = new MongoClient(uri);
@@ -35,7 +35,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#3671C6',
         secondaryColor: '#FF0000',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Red_Bull_Racing_logo.svg/1200px-Red_Bull_Racing_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Red_Bull_Racing_logo.svg/1200px-Red_Bull_Racing_logo.svg.png',
       },
       {
         name: 'Mercedes-AMG Petronas',
@@ -52,7 +53,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#00D2BE',
         secondaryColor: '#000000',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Mercedes_AMG_Petronas_F1_Logo.svg/1200px-Mercedes_AMG_Petronas_F1_Logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Mercedes_AMG_Petronas_F1_Logo.svg/1200px-Mercedes_AMG_Petronas_F1_Logo.svg.png',
       },
       {
         name: 'Scuderia Ferrari',
@@ -69,7 +71,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#DC0000',
         secondaryColor: '#FFFFFF',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Scuderia_Ferrari_logo.svg/1200px-Scuderia_Ferrari_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Scuderia_Ferrari_logo.svg/1200px-Scuderia_Ferrari_logo.svg.png',
       },
       {
         name: 'McLaren Racing',
@@ -86,7 +89,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#FF8700',
         secondaryColor: '#000000',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/McLaren_Racing_logo.svg/1200px-McLaren_Racing_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/McLaren_Racing_logo.svg/1200px-McLaren_Racing_logo.svg.png',
       },
       {
         name: 'Aston Martin F1 Team',
@@ -103,7 +107,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#006F62',
         secondaryColor: '#FFFFFF',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Aston_Martin_F1_Team_logo.svg/1200px-Aston_Martin_F1_Team_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Aston_Martin_F1_Team_logo.svg/1200px-Aston_Martin_F1_Team_logo.svg.png',
       },
       {
         name: 'Alpine F1 Team',
@@ -120,7 +125,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#0090FF',
         secondaryColor: '#FFFFFF',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Alpine_F1_Team_logo.svg/1200px-Alpine_F1_Team_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Alpine_F1_Team_logo.svg/1200px-Alpine_F1_Team_logo.svg.png',
       },
       {
         name: 'Williams Racing',
@@ -137,7 +143,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#005AFF',
         secondaryColor: '#FFFFFF',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Williams_Racing_logo.svg/1200px-Williams_Racing_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Williams_Racing_logo.svg/1200px-Williams_Racing_logo.svg.png',
       },
       {
         name: 'Visa Cash App RB',
@@ -154,7 +161,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#1E41FF',
         secondaryColor: '#FFFFFF',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Visa_Cash_App_RB_logo.svg/1200px-Visa_Cash_App_RB_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Visa_Cash_App_RB_logo.svg/1200px-Visa_Cash_App_RB_logo.svg.png',
       },
       {
         name: 'Stake F1 Team Kick Sauber',
@@ -171,7 +179,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#52E252',
         secondaryColor: '#000000',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Stake_F1_Team_Kick_Sauber_logo.svg/1200px-Stake_F1_Team_Kick_Sauber_logo.svg.png'
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Stake_F1_Team_Kick_Sauber_logo.svg/1200px-Stake_F1_Team_Kick_Sauber_logo.svg.png',
       },
       {
         name: 'MoneyGram Haas F1 Team',
@@ -188,8 +197,9 @@ async function seedData() {
         isActive: true,
         primaryColor: '#FFFFFF',
         secondaryColor: '#FF0000',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/MoneyGram_Haas_F1_Team_logo.svg/1200px-MoneyGram_Haas_F1_Team_logo.svg.png'
-      }
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/MoneyGram_Haas_F1_Team_logo.svg/1200px-MoneyGram_Haas_F1_Team_logo.svg.png',
+      },
     ];
 
     const teamsResult = await db.collection('teams').insertMany(teams);
@@ -197,9 +207,9 @@ async function seedData() {
 
     // Obtener IDs de equipos para referencias
     const teamsData = await db.collection('teams').find({}).toArray();
-    const teamIds = {};
-    teamsData.forEach(team => {
-      teamIds[team.name] = team._id;
+    const teamIds: { [key: string]: string } = {};
+    teamsData.forEach((team) => {
+      teamIds[team.name as string] = team._id.toString();
     });
 
     // Insertar pilotos
@@ -217,7 +227,7 @@ async function seedData() {
         polePositions: 40,
         fastestLaps: 32,
         isActive: true,
-        helmetColor: '#FF0000'
+        helmetColor: '#FF0000',
       },
       {
         name: 'Sergio',
@@ -232,7 +242,7 @@ async function seedData() {
         polePositions: 3,
         fastestLaps: 10,
         isActive: true,
-        helmetColor: '#00FF00'
+        helmetColor: '#00FF00',
       },
       {
         name: 'Lewis',
@@ -247,7 +257,7 @@ async function seedData() {
         polePositions: 104,
         fastestLaps: 64,
         isActive: true,
-        helmetColor: '#FFD700'
+        helmetColor: '#FFD700',
       },
       {
         name: 'George',
@@ -262,7 +272,7 @@ async function seedData() {
         polePositions: 1,
         fastestLaps: 6,
         isActive: true,
-        helmetColor: '#0000FF'
+        helmetColor: '#0000FF',
       },
       {
         name: 'Charles',
@@ -277,7 +287,7 @@ async function seedData() {
         polePositions: 23,
         fastestLaps: 7,
         isActive: true,
-        helmetColor: '#FF0000'
+        helmetColor: '#FF0000',
       },
       {
         name: 'Carlos',
@@ -292,7 +302,7 @@ async function seedData() {
         polePositions: 4,
         fastestLaps: 3,
         isActive: true,
-        helmetColor: '#FFA500'
+        helmetColor: '#FFA500',
       },
       {
         name: 'Lando',
@@ -307,7 +317,7 @@ async function seedData() {
         polePositions: 1,
         fastestLaps: 5,
         isActive: true,
-        helmetColor: '#FF6B6B'
+        helmetColor: '#FF6B6B',
       },
       {
         name: 'Oscar',
@@ -322,7 +332,7 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 1,
         isActive: true,
-        helmetColor: '#87CEEB'
+        helmetColor: '#87CEEB',
       },
       {
         name: 'Fernando',
@@ -337,7 +347,7 @@ async function seedData() {
         polePositions: 22,
         fastestLaps: 24,
         isActive: true,
-        helmetColor: '#FFD700'
+        helmetColor: '#FFD700',
       },
       {
         name: 'Lance',
@@ -352,7 +362,7 @@ async function seedData() {
         polePositions: 1,
         fastestLaps: 1,
         isActive: true,
-        helmetColor: '#FF69B4'
+        helmetColor: '#FF69B4',
       },
       {
         name: 'Esteban',
@@ -367,7 +377,7 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 0,
         isActive: true,
-        helmetColor: '#FF69B4'
+        helmetColor: '#FF69B4',
       },
       {
         name: 'Pierre',
@@ -382,7 +392,7 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 3,
         isActive: true,
-        helmetColor: '#FF1493'
+        helmetColor: '#FF1493',
       },
       {
         name: 'Alexander',
@@ -397,7 +407,7 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 0,
         isActive: true,
-        helmetColor: '#FF69B4'
+        helmetColor: '#FF69B4',
       },
       {
         name: 'Logan',
@@ -412,7 +422,7 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 0,
         isActive: true,
-        helmetColor: '#FFD700'
+        helmetColor: '#FFD700',
       },
       {
         name: 'Daniel',
@@ -427,7 +437,7 @@ async function seedData() {
         polePositions: 3,
         fastestLaps: 16,
         isActive: true,
-        helmetColor: '#FFD700'
+        helmetColor: '#FFD700',
       },
       {
         name: 'Yuki',
@@ -442,7 +452,7 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 0,
         isActive: true,
-        helmetColor: '#FF69B4'
+        helmetColor: '#FF69B4',
       },
       {
         name: 'Valtteri',
@@ -457,7 +467,7 @@ async function seedData() {
         polePositions: 20,
         fastestLaps: 19,
         isActive: true,
-        helmetColor: '#FF69B4'
+        helmetColor: '#FF69B4',
       },
       {
         name: 'Zhou',
@@ -472,7 +482,7 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 0,
         isActive: true,
-        helmetColor: '#FF0000'
+        helmetColor: '#FF0000',
       },
       {
         name: 'Nico',
@@ -487,7 +497,7 @@ async function seedData() {
         polePositions: 1,
         fastestLaps: 2,
         isActive: true,
-        helmetColor: '#FFD700'
+        helmetColor: '#FFD700',
       },
       {
         name: 'Kevin',
@@ -502,8 +512,8 @@ async function seedData() {
         polePositions: 0,
         fastestLaps: 2,
         isActive: true,
-        helmetColor: '#FFD700'
-      }
+        helmetColor: '#FFD700',
+      },
     ];
 
     const pilotsResult = await db.collection('pilots').insertMany(pilots);
@@ -525,7 +535,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1996,
         circuitType: 'street',
-        description: 'Circuito urbano alrededor del lago Albert Park'
+        description: 'Circuito urbano alrededor del lago Albert Park',
       },
       {
         name: 'Circuito Internacional de Baréin',
@@ -541,7 +551,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 2004,
         circuitType: 'permanent',
-        description: 'Circuito desértico con múltiples configuraciones'
+        description: 'Circuito desértico con múltiples configuraciones',
       },
       {
         name: 'Circuito Internacional de Jeddah',
@@ -557,7 +567,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 2021,
         circuitType: 'street',
-        description: 'Circuito urbano de alta velocidad junto al Mar Rojo'
+        description: 'Circuito urbano de alta velocidad junto al Mar Rojo',
       },
       {
         name: 'Circuito de Suzuka',
@@ -573,7 +583,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1987,
         circuitType: 'permanent',
-        description: 'Circuito técnico con la famosa curva S'
+        description: 'Circuito técnico con la famosa curva S',
       },
       {
         name: 'Circuito de Shanghái',
@@ -589,7 +599,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 2004,
         circuitType: 'permanent',
-        description: 'Circuito con forma de caracter chino "shang"'
+        description: 'Circuito con forma de caracter chino "shang"',
       },
       {
         name: 'Circuito de las Américas',
@@ -605,7 +615,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 2012,
         circuitType: 'permanent',
-        description: 'Circuito moderno con elevaciones naturales'
+        description: 'Circuito moderno con elevaciones naturales',
       },
       {
         name: 'Autódromo José Carlos Pace',
@@ -621,7 +631,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1973,
         circuitType: 'permanent',
-        description: 'Circuito histórico en el parque de Interlagos'
+        description: 'Circuito histórico en el parque de Interlagos',
       },
       {
         name: 'Circuito de Mónaco',
@@ -637,7 +647,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1950,
         circuitType: 'street',
-        description: 'Circuito urbano más prestigioso de F1'
+        description: 'Circuito urbano más prestigioso de F1',
       },
       {
         name: 'Circuito de Silverstone',
@@ -653,7 +663,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1950,
         circuitType: 'permanent',
-        description: 'Circuito histórico, cuna de la F1'
+        description: 'Circuito histórico, cuna de la F1',
       },
       {
         name: 'Circuito de Spa-Francorchamps',
@@ -669,7 +679,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1950,
         circuitType: 'permanent',
-        description: 'Circuito legendario en las Ardenas'
+        description: 'Circuito legendario en las Ardenas',
       },
       {
         name: 'Circuito de Monza',
@@ -685,7 +695,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1950,
         circuitType: 'permanent',
-        description: 'Templo de la velocidad, circuito más rápido'
+        description: 'Templo de la velocidad, circuito más rápido',
       },
       {
         name: 'Circuito de Marina Bay',
@@ -701,7 +711,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 2008,
         circuitType: 'street',
-        description: 'Primer Gran Premio nocturno de F1'
+        description: 'Primer Gran Premio nocturno de F1',
       },
       {
         name: 'Circuito de Yas Marina',
@@ -717,7 +727,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 2009,
         circuitType: 'permanent',
-        description: 'Circuito moderno con hotel en forma de barco'
+        description: 'Circuito moderno con hotel en forma de barco',
       },
       {
         name: 'Circuito de Hungaroring',
@@ -733,7 +743,7 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1986,
         circuitType: 'permanent',
-        description: 'Circuito técnico conocido como "Monaco sin muros"'
+        description: 'Circuito técnico conocido como "Monaco sin muros"',
       },
       {
         name: 'Circuito de Zandvoort',
@@ -749,8 +759,8 @@ async function seedData() {
         isActive: true,
         firstGrandPrix: 1952,
         circuitType: 'permanent',
-        description: 'Circuito costero con curvas peraltadas'
-      }
+        description: 'Circuito costero con curvas peraltadas',
+      },
     ];
 
     const circuitsResult = await db.collection('circuits').insertMany(circuits);
@@ -771,7 +781,7 @@ async function seedData() {
         isActive: true,
         manufacturer: 'Pirelli',
         season: 2024,
-        usageConditions: 'dry'
+        usageConditions: 'dry',
       },
       {
         name: 'P Zero Medium',
@@ -786,7 +796,7 @@ async function seedData() {
         isActive: true,
         manufacturer: 'Pirelli',
         season: 2024,
-        usageConditions: 'dry'
+        usageConditions: 'dry',
       },
       {
         name: 'P Zero Hard',
@@ -801,7 +811,7 @@ async function seedData() {
         isActive: true,
         manufacturer: 'Pirelli',
         season: 2024,
-        usageConditions: 'dry'
+        usageConditions: 'dry',
       },
       {
         name: 'Cinturato Intermediate',
@@ -816,7 +826,7 @@ async function seedData() {
         isActive: true,
         manufacturer: 'Pirelli',
         season: 2024,
-        usageConditions: 'wet'
+        usageConditions: 'wet',
       },
       {
         name: 'Cinturato Wet',
@@ -831,7 +841,7 @@ async function seedData() {
         isActive: true,
         manufacturer: 'Pirelli',
         season: 2024,
-        usageConditions: 'wet'
+        usageConditions: 'wet',
       },
       {
         name: 'P Zero Soft (2023)',
@@ -846,7 +856,7 @@ async function seedData() {
         isActive: false,
         manufacturer: 'Pirelli',
         season: 2023,
-        usageConditions: 'dry'
+        usageConditions: 'dry',
       },
       {
         name: 'P Zero Medium (2023)',
@@ -861,7 +871,7 @@ async function seedData() {
         isActive: false,
         manufacturer: 'Pirelli',
         season: 2023,
-        usageConditions: 'dry'
+        usageConditions: 'dry',
       },
       {
         name: 'P Zero Hard (2023)',
@@ -876,8 +886,8 @@ async function seedData() {
         isActive: false,
         manufacturer: 'Pirelli',
         season: 2023,
-        usageConditions: 'dry'
-      }
+        usageConditions: 'dry',
+      },
     ];
 
     const tiresResult = await db.collection('tires').insertMany(tires);
@@ -889,7 +899,6 @@ async function seedData() {
     console.log(`   • ${pilotsResult.insertedCount} pilotos`);
     console.log(`   • ${circuitsResult.insertedCount} circuitos`);
     console.log(`   • ${tiresResult.insertedCount} neumáticos`);
-
   } catch (error) {
     console.error('❌ Error:', error);
   } finally {
@@ -898,4 +907,4 @@ async function seedData() {
   }
 }
 
-seedData(); 
+seedData();
