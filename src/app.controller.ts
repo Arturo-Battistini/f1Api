@@ -5,7 +5,11 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+<<<<<<< HEAD
   @Get()
+=======
+  @Get('')
+>>>>>>> 0757d853e1bc8052e1befffd685dcdad83880cba
   getApiDocumentation(): object {
     return {
       message: '🏎️ F1 Fan API - Documentación',
