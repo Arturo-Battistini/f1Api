@@ -37,7 +37,7 @@ async function seedData() {
         primaryColor: '#3671C6',
         secondaryColor: '#FF0000',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Red_Bull_Racing_logo.svg/1200px-Red_Bull_Racing_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/at.svg',
       },
       {
         name: 'Mercedes-AMG Petronas',
@@ -55,7 +55,7 @@ async function seedData() {
         primaryColor: '#00D2BE',
         secondaryColor: '#000000',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Mercedes_AMG_Petronas_F1_Logo.svg/1200px-Mercedes_AMG_Petronas_F1_Logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/de.svg',
       },
       {
         name: 'Scuderia Ferrari',
@@ -73,7 +73,7 @@ async function seedData() {
         primaryColor: '#DC0000',
         secondaryColor: '#FFFFFF',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Scuderia_Ferrari_logo.svg/1200px-Scuderia_Ferrari_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/it.svg',
       },
       {
         name: 'McLaren Racing',
@@ -91,7 +91,7 @@ async function seedData() {
         primaryColor: '#FF8700',
         secondaryColor: '#000000',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/McLaren_Racing_logo.svg/1200px-McLaren_Racing_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
       },
       {
         name: 'Aston Martin F1 Team',
@@ -109,7 +109,7 @@ async function seedData() {
         primaryColor: '#006F62',
         secondaryColor: '#FFFFFF',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Aston_Martin_F1_Team_logo.svg/1200px-Aston_Martin_F1_Team_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
       },
       {
         name: 'Alpine F1 Team',
@@ -127,7 +127,7 @@ async function seedData() {
         primaryColor: '#0090FF',
         secondaryColor: '#FFFFFF',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Alpine_F1_Team_logo.svg/1200px-Alpine_F1_Team_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/fr.svg',
       },
       {
         name: 'Williams Racing',
@@ -145,7 +145,7 @@ async function seedData() {
         primaryColor: '#005AFF',
         secondaryColor: '#FFFFFF',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Williams_Racing_logo.svg/1200px-Williams_Racing_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
       },
       {
         name: 'Visa Cash App RB',
@@ -163,7 +163,7 @@ async function seedData() {
         primaryColor: '#1E41FF',
         secondaryColor: '#FFFFFF',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Visa_Cash_App_RB_logo.svg/1200px-Visa_Cash_App_RB_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/it.svg',
       },
       {
         name: 'Stake F1 Team Kick Sauber',
@@ -181,7 +181,7 @@ async function seedData() {
         primaryColor: '#52E252',
         secondaryColor: '#000000',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Stake_F1_Team_Kick_Sauber_logo.svg/1200px-Stake_F1_Team_Kick_Sauber_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/ch.svg',
       },
       {
         name: 'MoneyGram Haas F1 Team',
@@ -199,7 +199,7 @@ async function seedData() {
         primaryColor: '#FFFFFF',
         secondaryColor: '#FF0000',
         logoUrl:
-          'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/MoneyGram_Haas_F1_Team_logo.svg/1200px-MoneyGram_Haas_F1_Team_logo.svg.png',
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/us.svg',
       },
     ];
 
@@ -229,6 +229,8 @@ async function seedData() {
         fastestLaps: 32,
         isActive: true,
         helmetColor: '#FF0000',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/nl.svg',
       },
       {
         name: 'Sergio',
@@ -244,6 +246,8 @@ async function seedData() {
         fastestLaps: 10,
         isActive: true,
         helmetColor: '#00FF00',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/mx.svg',
       },
       {
         name: 'Lewis',
@@ -259,6 +263,8 @@ async function seedData() {
         fastestLaps: 64,
         isActive: true,
         helmetColor: '#FFD700',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
       },
       {
         name: 'George',
@@ -274,6 +280,8 @@ async function seedData() {
         fastestLaps: 6,
         isActive: true,
         helmetColor: '#0000FF',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
       },
       {
         name: 'Charles',
@@ -289,6 +297,8 @@ async function seedData() {
         fastestLaps: 7,
         isActive: true,
         helmetColor: '#FF0000',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/mc.svg',
       },
       {
         name: 'Carlos',
@@ -304,6 +314,8 @@ async function seedData() {
         fastestLaps: 3,
         isActive: true,
         helmetColor: '#FFA500',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/es.svg',
       },
       {
         name: 'Lando',
@@ -319,6 +331,8 @@ async function seedData() {
         fastestLaps: 5,
         isActive: true,
         helmetColor: '#FF6B6B',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
       },
       {
         name: 'Oscar',
@@ -334,6 +348,8 @@ async function seedData() {
         fastestLaps: 1,
         isActive: true,
         helmetColor: '#87CEEB',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/au.svg',
       },
       {
         name: 'Fernando',
@@ -349,6 +365,8 @@ async function seedData() {
         fastestLaps: 24,
         isActive: true,
         helmetColor: '#FFD700',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/es.svg',
       },
       {
         name: 'Lance',
@@ -364,6 +382,8 @@ async function seedData() {
         fastestLaps: 1,
         isActive: true,
         helmetColor: '#FF69B4',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/ca.svg',
       },
       {
         name: 'Esteban',
@@ -379,6 +399,8 @@ async function seedData() {
         fastestLaps: 0,
         isActive: true,
         helmetColor: '#FF69B4',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/fr.svg',
       },
       {
         name: 'Pierre',
@@ -394,6 +416,8 @@ async function seedData() {
         fastestLaps: 3,
         isActive: true,
         helmetColor: '#FF1493',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/fr.svg',
       },
       {
         name: 'Alexander',
@@ -409,6 +433,8 @@ async function seedData() {
         fastestLaps: 0,
         isActive: true,
         helmetColor: '#FF69B4',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/th.svg',
       },
       {
         name: 'Logan',
@@ -424,6 +450,8 @@ async function seedData() {
         fastestLaps: 0,
         isActive: true,
         helmetColor: '#FFD700',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/us.svg',
       },
       {
         name: 'Daniel',
@@ -439,6 +467,8 @@ async function seedData() {
         fastestLaps: 16,
         isActive: true,
         helmetColor: '#FFD700',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/au.svg',
       },
       {
         name: 'Yuki',
@@ -454,6 +484,8 @@ async function seedData() {
         fastestLaps: 0,
         isActive: true,
         helmetColor: '#FF69B4',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/jp.svg',
       },
       {
         name: 'Valtteri',
@@ -469,6 +501,8 @@ async function seedData() {
         fastestLaps: 19,
         isActive: true,
         helmetColor: '#FF69B4',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/fi.svg',
       },
       {
         name: 'Zhou',
@@ -484,6 +518,8 @@ async function seedData() {
         fastestLaps: 0,
         isActive: true,
         helmetColor: '#FF0000',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/cn.svg',
       },
       {
         name: 'Nico',
@@ -499,6 +535,8 @@ async function seedData() {
         fastestLaps: 2,
         isActive: true,
         helmetColor: '#FFD700',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/de.svg',
       },
       {
         name: 'Kevin',
@@ -514,6 +552,8 @@ async function seedData() {
         fastestLaps: 2,
         isActive: true,
         helmetColor: '#FFD700',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/dk.svg',
       },
     ];
 
@@ -537,6 +577,8 @@ async function seedData() {
         firstGrandPrix: 1996,
         circuitType: 'street',
         description: 'Circuito urbano alrededor del lago Albert Park',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/au.svg',
       },
       {
         name: 'Circuito Internacional de Baréin',
@@ -553,6 +595,8 @@ async function seedData() {
         firstGrandPrix: 2004,
         circuitType: 'permanent',
         description: 'Circuito desértico con múltiples configuraciones',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/bh.svg',
       },
       {
         name: 'Circuito Internacional de Jeddah',
@@ -569,6 +613,8 @@ async function seedData() {
         firstGrandPrix: 2021,
         circuitType: 'street',
         description: 'Circuito urbano de alta velocidad junto al Mar Rojo',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/sa.svg',
       },
       {
         name: 'Circuito de Suzuka',
@@ -585,6 +631,8 @@ async function seedData() {
         firstGrandPrix: 1987,
         circuitType: 'permanent',
         description: 'Circuito técnico con la famosa curva S',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/jp.svg',
       },
       {
         name: 'Circuito de Shanghái',
@@ -601,6 +649,8 @@ async function seedData() {
         firstGrandPrix: 2004,
         circuitType: 'permanent',
         description: 'Circuito con forma de caracter chino "shang"',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/cn.svg',
       },
       {
         name: 'Circuito de las Américas',
@@ -617,6 +667,8 @@ async function seedData() {
         firstGrandPrix: 2012,
         circuitType: 'permanent',
         description: 'Circuito moderno con elevaciones naturales',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/us.svg',
       },
       {
         name: 'Autódromo José Carlos Pace',
@@ -633,6 +685,8 @@ async function seedData() {
         firstGrandPrix: 1973,
         circuitType: 'permanent',
         description: 'Circuito histórico en el parque de Interlagos',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/br.svg',
       },
       {
         name: 'Circuito de Mónaco',
@@ -649,6 +703,8 @@ async function seedData() {
         firstGrandPrix: 1950,
         circuitType: 'street',
         description: 'Circuito urbano más prestigioso de F1',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/mc.svg',
       },
       {
         name: 'Circuito de Silverstone',
@@ -665,6 +721,8 @@ async function seedData() {
         firstGrandPrix: 1950,
         circuitType: 'permanent',
         description: 'Circuito histórico, cuna de la F1',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
       },
       {
         name: 'Circuito de Spa-Francorchamps',
@@ -681,6 +739,8 @@ async function seedData() {
         firstGrandPrix: 1950,
         circuitType: 'permanent',
         description: 'Circuito legendario en las Ardenas',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/be.svg',
       },
       {
         name: 'Circuito de Monza',
@@ -697,6 +757,8 @@ async function seedData() {
         firstGrandPrix: 1950,
         circuitType: 'permanent',
         description: 'Templo de la velocidad, circuito más rápido',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/it.svg',
       },
       {
         name: 'Circuito de Marina Bay',
@@ -713,6 +775,8 @@ async function seedData() {
         firstGrandPrix: 2008,
         circuitType: 'street',
         description: 'Primer Gran Premio nocturno de F1',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/sg.svg',
       },
       {
         name: 'Circuito de Yas Marina',
@@ -729,6 +793,8 @@ async function seedData() {
         firstGrandPrix: 2009,
         circuitType: 'permanent',
         description: 'Circuito moderno con hotel en forma de barco',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/ae.svg',
       },
       {
         name: 'Circuito de Hungaroring',
@@ -745,6 +811,8 @@ async function seedData() {
         firstGrandPrix: 1986,
         circuitType: 'permanent',
         description: 'Circuito técnico conocido como "Monaco sin muros"',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/hu.svg',
       },
       {
         name: 'Circuito de Zandvoort',
@@ -761,6 +829,8 @@ async function seedData() {
         firstGrandPrix: 1952,
         circuitType: 'permanent',
         description: 'Circuito costero con curvas peraltadas',
+        imageUrl:
+          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/nl.svg',
       },
     ];
 
@@ -783,6 +853,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2024,
         usageConditions: 'dry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
       {
         name: 'P Zero Medium',
@@ -798,6 +870,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2024,
         usageConditions: 'dry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
       {
         name: 'P Zero Hard',
@@ -813,6 +887,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2024,
         usageConditions: 'dry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
       {
         name: 'Cinturato Intermediate',
@@ -828,6 +904,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2024,
         usageConditions: 'wet',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
       {
         name: 'Cinturato Wet',
@@ -843,6 +921,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2024,
         usageConditions: 'wet',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
       {
         name: 'P Zero Soft (2023)',
@@ -858,6 +938,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2023,
         usageConditions: 'dry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
       {
         name: 'P Zero Medium (2023)',
@@ -873,6 +955,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2023,
         usageConditions: 'dry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
       {
         name: 'P Zero Hard (2023)',
@@ -888,6 +972,8 @@ async function seedData() {
         manufacturer: 'Pirelli',
         season: 2023,
         usageConditions: 'dry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       },
     ];
 

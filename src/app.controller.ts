@@ -6,11 +6,6 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
-  @Get('api')
   getApiDocumentation(): object {
     return {
       message: '🏎️ F1 Fan API - Documentación',
