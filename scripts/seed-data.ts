@@ -36,8 +36,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#3671C6',
         secondaryColor: '#FF0000',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/at.svg',
+        logo: '/assets/logos/2025redbullracinglogowhite.avif',
+        team: '/assets/teams/2025redbullracingcarright.avif',
       },
       {
         name: 'Mercedes-AMG Petronas',
@@ -54,8 +54,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#00D2BE',
         secondaryColor: '#000000',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/de.svg',
+        logo: '/assets/logos/2025mercedeslogowhite.avif',
+        team: '/assets/teams/2025mercedescarright.avif',
       },
       {
         name: 'Scuderia Ferrari',
@@ -72,8 +72,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#DC0000',
         secondaryColor: '#FFFFFF',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/it.svg',
+        logo: '/assets/logos/2025ferrarilogowhite.avif',
+        team: '/assets/teams/2025ferraricarright.avif',
       },
       {
         name: 'McLaren Racing',
@@ -90,8 +90,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#FF8700',
         secondaryColor: '#000000',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
+        logo: '/assets/logos/2025mclarenlogowhite.avif',
+        team: '/assets/teams/2025mclarencarright.avif',
       },
       {
         name: 'Aston Martin F1 Team',
@@ -108,8 +108,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#006F62',
         secondaryColor: '#FFFFFF',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
+        logo: '/assets/logos/2025astonmartinlogowhite.avif',
+        team: '/assets/teams/2025astonmartincarright.avif',
       },
       {
         name: 'Alpine F1 Team',
@@ -126,8 +126,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#0090FF',
         secondaryColor: '#FFFFFF',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/fr.svg',
+        logo: '/assets/logos/2025alpinelogowhite.avif',
+        team: '/assets/teams/2025alpinecarright.avif',
       },
       {
         name: 'Williams Racing',
@@ -144,8 +144,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#005AFF',
         secondaryColor: '#FFFFFF',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg',
+        logo: '/assets/logos/2025williamslogowhite.avif',
+        team: '/assets/teams/2025williamscarright.avif',
       },
       {
         name: 'Visa Cash App RB',
@@ -162,8 +162,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#1E41FF',
         secondaryColor: '#FFFFFF',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/it.svg',
+        logo: '/assets/logos/2025racingbullslogowhite.avif',
+        team: '/assets/teams/2025racingbullscarright.avif',
       },
       {
         name: 'Stake F1 Team Kick Sauber',
@@ -180,8 +180,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#52E252',
         secondaryColor: '#000000',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/ch.svg',
+        logo: '/assets/logos/2025kicksauberlogowhite.avif',
+        team: '/assets/teams/2025kicksaubercarright.avif',
       },
       {
         name: 'MoneyGram Haas F1 Team',
@@ -198,8 +198,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#FFFFFF',
         secondaryColor: '#FF0000',
-        logoUrl:
-          'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/us.svg',
+        logo: '/assets/logos/2025haaslogowhite.avif',
+        team: '/assets/teams/2025haascarright.avif',
       },
     ];
 
