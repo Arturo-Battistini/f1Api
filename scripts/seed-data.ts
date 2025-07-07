@@ -4,6 +4,9 @@ const uri =
   'mongodb+srv://f1fan-db:20202020@cluster0.ta3ee8i.mongodb.net/f1fan-db?retryWrites=true&w=majority&appName=Cluster0';
 const client = new MongoClient(uri);
 
+// URL base para las imágenes (ajustar según el entorno)
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+
 async function seedData() {
   try {
     await client.connect();
@@ -36,8 +39,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#3671C6',
         secondaryColor: '#FF0000',
-        logo: '/assets/logos/2025redbullracinglogowhite.avif',
-        team: '/assets/teams/2025redbullracingcarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025redbullracinglogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025redbullracingcarright.avif`,
       },
       {
         name: 'Mercedes-AMG Petronas',
@@ -54,8 +57,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#00D2BE',
         secondaryColor: '#000000',
-        logo: '/assets/logos/2025mercedeslogowhite.avif',
-        team: '/assets/teams/2025mercedescarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025mercedeslogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025mercedescarright.avif`,
       },
       {
         name: 'Scuderia Ferrari',
@@ -72,8 +75,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#DC0000',
         secondaryColor: '#FFFFFF',
-        logo: '/assets/logos/2025ferrarilogowhite.avif',
-        team: '/assets/teams/2025ferraricarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025ferrarilogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025ferraricarright.avif`,
       },
       {
         name: 'McLaren Racing',
@@ -90,8 +93,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#FF8700',
         secondaryColor: '#000000',
-        logo: '/assets/logos/2025mclarenlogowhite.avif',
-        team: '/assets/teams/2025mclarencarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025mclarenlogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025mclarencarright.avif`,
       },
       {
         name: 'Aston Martin F1 Team',
@@ -108,8 +111,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#006F62',
         secondaryColor: '#FFFFFF',
-        logo: '/assets/logos/2025astonmartinlogowhite.avif',
-        team: '/assets/teams/2025astonmartincarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025astonmartinlogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025astonmartincarright.avif`,
       },
       {
         name: 'Alpine F1 Team',
@@ -126,8 +129,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#0090FF',
         secondaryColor: '#FFFFFF',
-        logo: '/assets/logos/2025alpinelogowhite.avif',
-        team: '/assets/teams/2025alpinecarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025alpinelogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025alpinecarright.avif`,
       },
       {
         name: 'Williams Racing',
@@ -144,8 +147,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#005AFF',
         secondaryColor: '#FFFFFF',
-        logo: '/assets/logos/2025williamslogowhite.avif',
-        team: '/assets/teams/2025williamscarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025williamslogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025williamscarright.avif`,
       },
       {
         name: 'Visa Cash App RB',
@@ -162,8 +165,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#1E41FF',
         secondaryColor: '#FFFFFF',
-        logo: '/assets/logos/2025racingbullslogowhite.avif',
-        team: '/assets/teams/2025racingbullscarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025racingbullslogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025racingbullscarright.avif`,
       },
       {
         name: 'Stake F1 Team Kick Sauber',
@@ -180,8 +183,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#52E252',
         secondaryColor: '#000000',
-        logo: '/assets/logos/2025kicksauberlogowhite.avif',
-        team: '/assets/teams/2025kicksaubercarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025kicksauberlogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025kicksaubercarright.avif`,
       },
       {
         name: 'MoneyGram Haas F1 Team',
@@ -198,8 +201,8 @@ async function seedData() {
         isActive: true,
         primaryColor: '#FFFFFF',
         secondaryColor: '#FF0000',
-        logo: '/assets/logos/2025haaslogowhite.avif',
-        team: '/assets/teams/2025haascarright.avif',
+        logo: `${BASE_URL}/assets/logos/2025haaslogowhite.avif`,
+        team: `${BASE_URL}/assets/teams/2025haascarright.avif`,
       },
     ];
 
