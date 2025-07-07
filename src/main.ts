@@ -11,8 +11,10 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // Prefijo global para la API
-  app.setGlobalPrefix('api');
+  // Prefijo global para la API (excluyendo assets)
+  app.setGlobalPrefix('api', {
+    exclude: ['/assets/(.*)'],
+  });
 
   const port = process.env.PORT || 3000;
   await app.listen(port, '0.0.0.0');
