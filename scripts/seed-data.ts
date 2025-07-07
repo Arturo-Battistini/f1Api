@@ -5,7 +5,7 @@ const uri =
 const client = new MongoClient(uri);
 
 // URL base para las imágenes (ajustar según el entorno)
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+const BASE_URL = process.env.BASE_URL || 'https://f1api-4pft.onrender.com';
 
 async function seedData() {
   try {

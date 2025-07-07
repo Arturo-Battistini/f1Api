@@ -19,6 +19,9 @@ import { TiresModule } from './tires/tires.module';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'assets'),
       serveRoot: '/assets',
+      serveStaticOptions: {
+        index: false,
+      },
     }),
     PilotsModule,
     TeamsModule,
