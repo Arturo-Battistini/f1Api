@@ -35,7 +35,7 @@ GET /api/pilots/top?limit=10
 GET /api/pilots/top?limit=5
 ```
 
-### **Obtener pilotos por equipo**
+### **Obtener pilotos por equipo (ID)**
 ```http
 GET /api/pilots/team/{teamId}
 ```
@@ -45,6 +45,18 @@ GET /api/pilots/team/{teamId}
 **Ejemplo:**
 ```http
 GET /api/pilots/team/64f8a1b2c3d4e5f6a7b8c9d0
+```
+
+### **Obtener pilotos por nombre de equipo**
+```http
+GET /api/pilots/team/{teamName}
+```
+**Parámetros:**
+- `teamName`: Nombre del equipo (ej: "Ferrari", "Mercedes", "Red Bull Racing")
+
+**Ejemplo:**
+```http
+GET /api/pilots/team/Ferrari
 ```
 
 ### **Obtener pilotos por nacionalidad**
@@ -107,6 +119,18 @@ GET /api/teams/engine/{engine}
 ```
 **Parámetros:**
 - `engine`: Fabricante del motor (ej: "Mercedes", "Ferrari", "Honda RBPT")
+
+### **Obtener equipo por nombre**
+```http
+GET /api/teams/name/{teamName}
+```
+**Parámetros:**
+- `teamName`: Nombre del equipo (ej: "Ferrari", "Mercedes", "Red Bull Racing")
+
+**Ejemplo:**
+```http
+GET /api/teams/name/Ferrari
+```
 
 ### **Obtener equipo específico**
 ```http

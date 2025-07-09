@@ -15,6 +15,12 @@ export class TeamsService {
     return this.teamModel.findById(id).exec();
   }
 
+  async findByName(name: string): Promise<Team | null> {
+    return this.teamModel
+      .findOne({ name: new RegExp(`^${name}$`, 'i') })
+      .exec();
+  }
+
   async findActive(): Promise<Team[]> {
     return this.teamModel.find({ isActive: true }).exec();
   }

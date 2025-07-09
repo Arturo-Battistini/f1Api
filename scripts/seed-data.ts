@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
 const uri =
   'mongodb+srv://f1fan-db:20202020@cluster0.ta3ee8i.mongodb.net/f1fan-db?retryWrites=true&w=majority&appName=Cluster0';
@@ -208,9 +208,9 @@ async function seedData() {
 
     // Obtener IDs de equipos para referencias
     const teamsData = await db.collection('teams').find({}).toArray();
-    const teamIds: { [key: string]: string } = {};
+    const teamIds: { [key: string]: ObjectId } = {};
     teamsData.forEach((team) => {
-      teamIds[team.name as string] = team._id.toString();
+      teamIds[team.name as string] = team._id; // Mantener como ObjectId, no convertir a string
     });
 
     // Insertar pilotos

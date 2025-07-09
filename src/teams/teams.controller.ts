@@ -40,6 +40,17 @@ export class TeamsController {
     return this.teamsService.findByEngine(engine);
   }
 
+  @Get('name/:teamName')
+  async findByName(@Param('teamName') teamName: string): Promise<Team> {
+    const team = await this.teamsService.findByName(teamName);
+    if (!team) {
+      throw new NotFoundException(
+        `Equipo con nombre "${teamName}" no encontrado`,
+      );
+    }
+    return team;
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Team> {
     const team = await this.teamsService.findOne(id);
