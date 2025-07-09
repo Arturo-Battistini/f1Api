@@ -34,15 +34,21 @@ export class PilotsService {
 
   async findByTeamName(teamName: string): Promise<Pilot[]> {
     const team = await this.teamModel.findOne({
-      name: new RegExp(`^${teamName}$`, 'i'),
+      name: { $regex: `^${teamName.trim()}$`, $options: 'i' }, // expresion regular case-insensitive
     });
-    if (!team) return [];
 
-    return this.pilotModel
+    if (!team) {
+      console.log('❌ No se encontró el equipo con nombre:', teamName);
+      return [];
+    }
+
+    const pilotos = await this.pilotModel
       .find({ currentTeam: team._id })
-      .populate('currentTeam')
+      .populate('currentTeam', 'name nationality')
       .limit(25)
       .exec();
+
+    return pilotos;
   }
 
   async findByNationality(nationality: string): Promise<Pilot[]> {
