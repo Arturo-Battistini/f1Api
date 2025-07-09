@@ -28,6 +28,11 @@ export class PilotsController {
     return this.pilotsService.findTopDrivers(limitNumber);
   }
 
+  @Get('team/id/:teamId')
+  async findByTeam(@Param('teamId') teamId: string): Promise<Pilot[]> {
+    return this.pilotsService.findByTeam(teamId);
+  }
+
   @Get('team/:teamName')
   async findByTeamName(@Param('teamName') teamName: string): Promise<Pilot[]> {
     return this.pilotsService.findByTeamName(teamName);
