@@ -35,6 +35,7 @@ export class PilotsController {
 
   @Get('team/:teamName')
   async findByTeamName(@Param('teamName') teamName: string): Promise<Pilot[]> {
+    console.log('🎯 Controller: Buscando equipo:', teamName);
     return this.pilotsService.findByTeamName(teamName);
   }
 
@@ -47,6 +48,7 @@ export class PilotsController {
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Pilot> {
+    console.log('🔍 Controller: Buscando piloto por ID:', id);
     const pilot = await this.pilotsService.findOne(id);
     if (!pilot) {
       throw new NotFoundException(`Piloto con ID ${id} no encontrado`);

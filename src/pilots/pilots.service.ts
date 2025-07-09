@@ -33,11 +33,13 @@ export class PilotsService {
   }
 
   async findByTeamName(teamName: string): Promise<Pilot[]> {
+    console.log('🔍 Buscando pilotos del equipo:', teamName);
+
     // Buscar pilotos usando aggregate para hacer join con teams
     const pilots = await this.pilotModel.aggregate([
       {
         $lookup: {
-          from: 'teams',
+          from: 'teams', // Nombre de la colección en MongoDB
           localField: 'currentTeam',
           foreignField: '_id',
           as: 'teamInfo',
@@ -67,6 +69,7 @@ export class PilotsService {
       },
     ]);
 
+    console.log('✅ Pilotos encontrados:', pilots.length);
     return pilots as Pilot[];
   }
 
