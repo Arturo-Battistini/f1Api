@@ -3,12 +3,10 @@ services:
     name: f1fan-api
     runtime: node
     buildCommand: npm install && npm run build
-    startCommand: npm run start:render
+    startCommand: npm run start:prod
     envVars:
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
         sync: false
-      - key: NODE_OPTIONS
-        value: "--max-old-space-size=512"
     healthCheckPath: /api 
