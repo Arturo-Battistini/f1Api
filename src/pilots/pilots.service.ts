@@ -33,20 +33,41 @@ export class PilotsService {
   }
 
   async findByTeamName(teamName: string): Promise<Pilot[]> {
-    // Primero buscar el equipo por nombre
-    const team = await this.teamModel
-      .findOne({ name: new RegExp(teamName, 'i') })
-      .exec();
+    // Buscar pilotos usando aggregate para hacer join con teams
+    const pilots = await this.pilotModel.aggregate([
+      {
+        $lookup: {
+          from: 'teams',
+          localField: 'currentTeam',
+          foreignField: '_id',
+          as: 'teamInfo',
+        },
+      },
+      {
+        $unwind: '$teamInfo',
+      },
+      {
+        $match: {
+          'teamInfo.name': new RegExp(teamName, 'i'),
+        },
+      },
+      {
+        $addFields: {
+          currentTeam: {
+            _id: '$teamInfo._id',
+            name: '$teamInfo.name',
+            nationality: '$teamInfo.nationality',
+          },
+        },
+      },
+      {
+        $project: {
+          teamInfo: 0,
+        },
+      },
+    ]);
 
-    if (!team) {
-      return [];
-    }
-
-    // Luego buscar pilotos por ID del equipo (más eficiente)
-    return this.pilotModel
-      .find({ currentTeam: team._id })
-      .populate('currentTeam', 'name nationality')
-      .exec();
+    return pilots as Pilot[];
   }
 
   async findByNationality(nationality: string): Promise<Pilot[]> {
