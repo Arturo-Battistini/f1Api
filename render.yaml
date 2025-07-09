@@ -3,7 +3,7 @@ services:
     name: f1fan-api
     runtime: node
     buildCommand: npm install && npm run build
-    startCommand: npm run start:prod
+    startCommand: npm run start:render
     envVars:
       - key: NODE_ENV
         value: production
