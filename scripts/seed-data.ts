@@ -460,7 +460,7 @@ async function seedData() {
         nationality: 'Alemania',
         dateOfBirth: new Date('1987-08-19'),
         number: 27,
-        currentTeam: teamIds['Haas'],
+        currentTeam: teamIds['Kick Sauber'],
         championshipPoints: 530,
         raceWins: 0,
         podiums: 0,
