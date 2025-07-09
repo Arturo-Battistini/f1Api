@@ -33,21 +33,15 @@ export class PilotsService {
   }
 
   async findByTeamName(teamName: string): Promise<Pilot[]> {
-    // Buscar el equipo por nombre primero (consulta ligera)
-    const team = await this.teamModel
-      .findOne({
-        name: { $regex: new RegExp(`^${teamName}$`, 'i') },
-      })
-      .exec();
+    const team = await this.teamModel.findOne({
+      name: new RegExp(`^${teamName}$`, 'i'),
+    });
+    if (!team) return [];
 
-    if (!team) {
-      return [];
-    }
-
-    // Buscar pilotos solo de ese equipo específico (eficiente)
     return this.pilotModel
       .find({ currentTeam: team._id })
-      .populate('currentTeam', 'name nationality')
+      .populate('currentTeam')
+      .limit(25)
       .exec();
   }
 
