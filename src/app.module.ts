@@ -17,11 +17,8 @@ import { TiresModule } from './tires/tires.module';
     }),
     MongooseModule.forRoot(process.env.MONGODB_URI as string),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'assets'),
+      rootPath: join(__dirname, '..', 'src', 'assets'),
       serveRoot: '/assets',
-      serveStaticOptions: {
-        index: false,
-      },
     }),
     PilotsModule,
     TeamsModule,

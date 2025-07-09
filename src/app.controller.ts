@@ -17,12 +17,12 @@ export class AppController {
         pilots: {
           description: 'Información de pilotos de F1',
           routes: [
-            'GET /api/pilots - Todos los pilotos',
-            'GET /api/pilots/active - Solo pilotos activos',
-            'GET /api/pilots/top?limit=10 - Top pilotos por puntos',
-            'GET /api/pilots/team/:teamId - Pilotos por equipo',
-            'GET /api/pilots/nationality/:nationality - Pilotos por nacionalidad',
-            'GET /api/pilots/:id - Piloto específico',
+            'GET /pilots - Todos los pilotos',
+            'GET /pilots/active - Solo pilotos activos',
+            'GET /pilots/top?limit=10 - Top pilotos por puntos',
+            'GET /pilots/team/:teamId - Pilotos por equipo',
+            'GET /pilots/nationality/:nationality - Pilotos por nacionalidad',
+            'GET /pilots/:id - Piloto específico',
           ],
           examples: [
             'https://f1api-4pft.onrender.com/api/pilots',

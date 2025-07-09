@@ -33,6 +33,11 @@ export class PilotsController {
     return this.pilotsService.findByTeam(teamId);
   }
 
+  @Get('team-name/:teamName')
+  async findByTeamName(@Param('teamName') teamName: string): Promise<Pilot[]> {
+    return this.pilotsService.findByTeamName(teamName);
+  }
+
   @Get('nationality/:nationality')
   async findByNationality(
     @Param('nationality') nationality: string,

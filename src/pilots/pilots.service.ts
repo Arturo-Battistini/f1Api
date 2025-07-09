@@ -30,6 +30,18 @@ export class PilotsService {
       .exec();
   }
 
+  async findByTeamName(teamName: string): Promise<Pilot[]> {
+    return this.pilotModel
+      .find()
+      .populate({
+        path: 'currentTeam',
+        match: { name: new RegExp(teamName, 'i') },
+        select: 'name nationality',
+      })
+      .exec()
+      .then((pilots) => pilots.filter((pilot) => pilot.currentTeam !== null));
+  }
+
   async findByNationality(nationality: string): Promise<Pilot[]> {
     return this.pilotModel
       .find({ nationality: new RegExp(nationality, 'i') })

@@ -1,0 +1,106 @@
+{
+  "logos": [
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025alpinelogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025astonmartinlogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025ferrarilogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025haaslogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025kicksauberlogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025mclarenlogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025mercedeslogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025racingbullslogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025redbullracinglogowhite.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025williamslogowhite.avif"
+    }
+  ],
+  "teams": [
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025alpinecarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025astonmartincarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025ferraricarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025haascarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025kicksaubercarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025mclarencarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025mercedescarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025racingbullscarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025redbullracingcarright.avif"
+    },
+    {
+      "success": false,
+      "error": "Request failed with status code 429",
+      "filename": "2025williamscarright.avif"
+    }
+  ]
+}
