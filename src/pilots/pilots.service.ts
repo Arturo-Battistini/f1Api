@@ -35,6 +35,10 @@ export class PilotsService {
   async findByTeamName(teamName: string): Promise<Pilot[]> {
     console.log('🔍 Buscando pilotos del equipo:', teamName);
 
+    // Primero, veamos qué hay en la colección de pilotos
+    const allPilots = await this.pilotModel.find().limit(2).exec();
+    console.log('📋 Muestra de pilotos:', JSON.stringify(allPilots, null, 2));
+
     // Buscar pilotos usando aggregate para hacer join con teams
     const pilots = await this.pilotModel.aggregate([
       {
@@ -70,6 +74,24 @@ export class PilotsService {
     ]);
 
     console.log('✅ Pilotos encontrados:', pilots.length);
+
+    // Si no encuentra nada, probemos un aggregate más simple
+    if (pilots.length === 0) {
+      console.log('🔍 Probando aggregate simple...');
+      const testAggregate = await this.pilotModel.aggregate([
+        {
+          $lookup: {
+            from: 'teams',
+            localField: 'currentTeam',
+            foreignField: '_id',
+            as: 'teamInfo',
+          },
+        },
+        { $limit: 2 },
+      ]);
+      console.log('🧪 Test aggregate:', JSON.stringify(testAggregate, null, 2));
+    }
+
     return pilots as Pilot[];
   }
 
