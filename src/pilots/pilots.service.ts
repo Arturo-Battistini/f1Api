@@ -2,11 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Pilot, PilotDocument } from './schemas/pilot.schema';
+import { Team, TeamDocument } from '../teams/schemas/team.schema';
 
 @Injectable()
 export class PilotsService {
   constructor(
     @InjectModel(Pilot.name) private pilotModel: Model<PilotDocument>,
+    @InjectModel(Team.name) private teamModel: Model<TeamDocument>,
   ) {}
 
   async findAll(): Promise<Pilot[]> {
@@ -31,15 +33,22 @@ export class PilotsService {
   }
 
   async findByTeamName(teamName: string): Promise<Pilot[]> {
-    return this.pilotModel
-      .find()
-      .populate({
-        path: 'currentTeam',
-        match: { name: new RegExp(teamName, 'i') },
-        select: 'name nationality',
+    // Primero buscar el equipo por nombre
+    const team = await this.teamModel
+      .findOne({
+        name: new RegExp(teamName, 'i'),
       })
-      .exec()
-      .then((pilots) => pilots.filter((pilot) => pilot.currentTeam !== null));
+      .exec();
+
+    if (!team) {
+      return [];
+    }
+
+    // Luego buscar pilotos por el ID del equipo
+    return this.pilotModel
+      .find({ currentTeam: team._id })
+      .populate('currentTeam', 'name nationality')
+      .exec();
   }
 
   async findByNationality(nationality: string): Promise<Pilot[]> {

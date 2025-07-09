@@ -9,4 +9,6 @@ services:
         value: production
       - key: MONGODB_URI
         sync: false
+      - key: NODE_OPTIONS
+        value: "--max-old-space-size=512"
     healthCheckPath: /api 
