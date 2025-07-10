@@ -73,4 +73,25 @@ export class PilotsService {
       .populate('currentTeam', 'name nationality')
       .exec();
   }
+
+  async findBySlug(slug: string): Promise<Pilot | null> {
+    // Convertir el slug a formato normal (reemplazar guiones por espacios)
+    const nameParts = slug.split('-');
+    if (nameParts.length < 2) {
+      return null;
+    }
+
+    const firstName = nameParts[0];
+    const lastName = nameParts.slice(1).join(' ');
+
+    return this.pilotModel
+      .findOne({
+        $and: [
+          { name: { $regex: `^${firstName}$`, $options: 'i' } },
+          { surname: { $regex: `^${lastName}$`, $options: 'i' } },
+        ],
+      })
+      .populate('currentTeam', 'name nationality')
+      .exec();
+  }
 }

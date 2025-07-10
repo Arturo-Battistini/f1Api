@@ -45,6 +45,16 @@ export class PilotsController {
     return this.pilotsService.findByNationality(nationality);
   }
 
+  @Get(':slug')
+  async findBySlug(@Param('slug') slug: string): Promise<Pilot> {
+    console.log('🔍 Controller: Buscando piloto por slug:', slug);
+    const pilot = await this.pilotsService.findBySlug(slug);
+    if (!pilot) {
+      throw new NotFoundException(`Piloto con slug ${slug} no encontrado`);
+    }
+    return pilot;
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Pilot> {
     console.log('🔍 Controller: Buscando piloto por ID:', id);
